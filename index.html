@@ -34,7 +34,7 @@
                         <li class="nav-item"><a class="nav-link text-white" href="#cab"><span class="fa fa-taxi fa-lg "></span>Cabs for cities</a></li>
                         <li class="nav-item"><a class="nav-link text-white" href="#feature"><span class="fa fa-bolt fa-lg "></span>Features</a></li>
                         <li class="nav-item"><a class="nav-link text-white" href="#faq"><span class="fa fa-question fa-lg"></span>FAQs</a></li>
-                        <li class="nav-item text-white"><a class="nav-link" data-toggle="modal" data-target="#feedback"><span class="fa fa-comment fa-lg"></span>Feedback</a></li>
+                        <li class="nav-item text-white"><a class="nav-link text-white" data-toggle="modal" data-target="#feedback"><span class="fa fa-comment fa-lg"></span>Feedback</a></li>
                     </ul>
                 </div>
             </nav>
@@ -48,7 +48,7 @@
                     <div class="image-tit d-none d-md-block">HOWDY<br>CABS</div>
                 </div>
                 <div class="d-none d-md-block">
-                    <button type="button" class="btn btn-acc" data-toggle="modal" data-target="#login"><strong>&nbsp; Log in &nbsp;</strong></button>&nbsp;
+                    <button type="button" id="loginButton" class="btn btn-acc"><strong>&nbsp; Log in &nbsp;</strong></button>&nbsp;
                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#register"><strong>&nbsp; Register &nbsp;</strong></button>
                 </div>
             </div>
@@ -629,5 +629,28 @@
         <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="node_modules\dompurify\dist\purify.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            $('#mycarousel').carousel({interval: 2000})
+            $('#carouselButton').click(function(){
+                if($('#carouselButton').children('span').hasClass('fa-pause')){
+                    $('#mycarousel').carousel('pause');
+                    $('#carouselButton').children('span').removeClass('fa-pause');
+                    $('#carouselButton').children('span').addClass('fa-play');
+                }
+                else{
+                    $('#mycarousel').carousel('cycle');
+                    $('#carouselButton').children('span').removeClass('fa-play');
+                    $('#carouselButton').children('span').addClass('fa-pause');
+                }
+            });
+            $('#loginButton').click(function(){
+                $('#login').modal('show');
+            })
+        });
+        </script>
+
     </body>
 </html>
